@@ -16,9 +16,9 @@
 
   "pipeline": {
     "database": {
-      "status": "working",
+      "status": "idle",
       "session": "beast-db",
-      "current_task": "foundation-2.2",
+      "current_task": null,
       "current_spec": "2025-12-03-foundation",
       "completed_tasks": [
         "foundation-1.1",
@@ -28,9 +28,16 @@
         "foundation-1.5",
         "foundation-1.6",
         "foundation-1.7",
-        "foundation-2.1"
+        "foundation-2.1",
+        "foundation-2.2",
+        "foundation-2.3",
+        "foundation-2.4",
+        "foundation-2.5",
+        "foundation-2.6",
+        "foundation-2.7",
+        "foundation-2.8"
       ],
-      "last_heartbeat": "2025-12-03T16:20:00Z"
+      "last_heartbeat": "2025-12-03T16:30:00Z"
     },
     "backend": {
       "status": "waiting",
@@ -43,10 +50,21 @@
     "frontend": {
       "status": "working",
       "session": "beast-ui",
-      "current_task": "foundation-5.1",
+      "current_task": "foundation-4.1",
       "current_spec": "2025-12-03-foundation",
-      "completed_tasks": ["foundation-3.1", "foundation-3.2", "foundation-3.3", "foundation-3.4"],
-      "last_heartbeat": "2025-12-03T16:20:00Z"
+      "completed_tasks": [
+        "foundation-3.1",
+        "foundation-3.2",
+        "foundation-3.3",
+        "foundation-3.4",
+        "foundation-5.1",
+        "foundation-5.2",
+        "foundation-5.3",
+        "foundation-5.4",
+        "foundation-5.5",
+        "foundation-5.6"
+      ],
+      "last_heartbeat": "2025-12-03T16:25:00Z"
     },
     "testing": {
       "status": "waiting",
@@ -63,14 +81,14 @@
       "status": "in_progress",
       "wave": 1,
       "layers": {
-        "database": "in_progress",
+        "database": "complete",
         "backend": "blocked",
         "frontend": "blocked",
         "testing": "blocked"
       },
       "tasks": {
         "total": 43,
-        "completed": 8,
+        "completed": 15,
         "merged": 0,
         "failed": 0
       },
@@ -269,7 +287,7 @@
         "group": 2,
         "task": "2.2",
         "description": "Create migration for tax debt tables",
-        "status": "in_progress"
+        "status": "completed"
       },
       {
         "id": "foundation-2.3",
@@ -277,7 +295,7 @@
         "group": 2,
         "task": "2.3",
         "description": "Create migration for financial snapshot tables",
-        "status": "pending"
+        "status": "completed"
       },
       {
         "id": "foundation-2.4",
@@ -285,7 +303,7 @@
         "group": 2,
         "task": "2.4",
         "description": "Create migration for Plaid/banking tables",
-        "status": "pending"
+        "status": "completed"
       },
       {
         "id": "foundation-2.5",
@@ -293,7 +311,7 @@
         "group": 2,
         "task": "2.5",
         "description": "Create migration for tax planning tables",
-        "status": "pending"
+        "status": "completed"
       },
       {
         "id": "foundation-2.6",
@@ -301,7 +319,7 @@
         "group": 2,
         "task": "2.6",
         "description": "Create migration for reference data tables",
-        "status": "pending"
+        "status": "completed"
       },
       {
         "id": "foundation-2.7",
@@ -309,7 +327,7 @@
         "group": 2,
         "task": "2.7",
         "description": "Create indexes for performance",
-        "status": "pending"
+        "status": "completed"
       },
       {
         "id": "foundation-2.8",
@@ -317,7 +335,7 @@
         "group": 2,
         "task": "2.8",
         "description": "Generate TypeScript types from schema",
-        "status": "pending"
+        "status": "completed"
       }
     ],
     "backend": [],
@@ -327,7 +345,7 @@
 
   "stats": {
     "tasks_total": 252,
-    "tasks_completed": 8,
+    "tasks_completed": 15,
     "tasks_merged": 0,
     "tasks_failed": 0,
     "tasks_skipped": 0,
