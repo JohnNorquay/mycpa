@@ -1,28 +1,28 @@
-"use client";
+'use client'
 
-import { useState, useRef, useEffect } from "react";
-import { User, LogOut, Settings } from "lucide-react";
-import Link from "next/link";
+import { useState, useRef, useEffect } from 'react'
+import { User, LogOut, Settings } from 'lucide-react'
+import Link from 'next/link'
+import { signOut } from '@/app/actions/auth'
 
 interface HeaderProps {
-  userEmail?: string;
-  onSignOut?: () => void;
+  userEmail?: string
 }
 
-export function Header({ userEmail, onSignOut }: HeaderProps) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+export function Header({ userEmail }: HeaderProps) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsMenuOpen(false);
+        setIsMenuOpen(false)
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center justify-end border-b px-6 dark:border-gray-800 dark:bg-gray-900">
@@ -40,12 +40,8 @@ export function Header({ userEmail, onSignOut }: HeaderProps) {
           <div className="absolute right-0 mt-2 w-56 rounded-md border bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
             {userEmail && (
               <div className="border-b px-4 py-3 dark:border-gray-700">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Signed in as
-                </p>
-                <p className="truncate text-sm font-medium dark:text-white">
-                  {userEmail}
-                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Signed in as</p>
+                <p className="truncate text-sm font-medium dark:text-white">{userEmail}</p>
               </div>
             )}
             <div className="py-1">
@@ -57,22 +53,20 @@ export function Header({ userEmail, onSignOut }: HeaderProps) {
                 <Settings size={16} />
                 Settings
               </Link>
-              {onSignOut && (
+              <form action={signOut}>
                 <button
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    onSignOut();
-                  }}
+                  type="submit"
+                  onClick={() => setIsMenuOpen(false)}
                   className="flex w-full items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:text-red-400 dark:hover:bg-gray-700"
                 >
                   <LogOut size={16} />
                   Sign out
                 </button>
-              )}
+              </form>
             </div>
           </div>
         )}
       </div>
     </header>
-  );
+  )
 }
