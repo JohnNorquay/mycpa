@@ -1,0 +1,11 @@
+{
+  "session_id": "session-3",
+  "name": "Frontend Worker",
+  "profile": "frontend",
+  "status": "idle",
+  "current_task": null,
+  "current_branch": null,
+  "last_heartbeat": null,
+  "completed_tasks": [],
+  "failed_tasks": []
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Frontend Worker",
+  "agents": [
+    "ui-designer",
+    "frontend-debugger",
+    "frontend-verifier"
+  ],
+  "skills": [
+    "nextjs-app-router"
+  ],
+  "focus_keywords": [
+    "component",
+    "page",
+    "ui",
+    "frontend",
+    "styling",
+    "responsive",
+    "form",
+    "layout",
+    "css",
+    "react",
+    "hook",
+    "state",
+    "props",
+    "tailwind"
+  ]
+}

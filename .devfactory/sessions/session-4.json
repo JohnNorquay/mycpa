@@ -1,0 +1,11 @@
+{
+  "session_id": "session-4",
+  "name": "Testing Worker",
+  "profile": "testing",
+  "status": "idle",
+  "current_task": null,
+  "current_branch": null,
+  "last_heartbeat": null,
+  "completed_tasks": [],
+  "failed_tasks": []
+}

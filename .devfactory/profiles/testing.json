@@ -1,0 +1,26 @@
+{
+  "name": "Testing Worker",
+  "agents": [
+    "testing-engineer",
+    "browser-automation-agent",
+    "test-scenario-loader",
+    "error-classifier",
+    "implementation-verifier"
+  ],
+  "skills": [],
+  "focus_keywords": [
+    "test",
+    "e2e",
+    "integration",
+    "unit",
+    "verification",
+    "assertion",
+    "mock",
+    "fixture",
+    "spec",
+    "coverage",
+    "playwright",
+    "jest",
+    "scenario"
+  ]
+}

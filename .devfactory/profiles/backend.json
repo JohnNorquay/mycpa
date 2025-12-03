@@ -1,0 +1,27 @@
+{
+  "name": "Backend Worker",
+  "agents": [
+    "api-engineer",
+    "backend-debugger",
+    "backend-verifier"
+  ],
+  "skills": [
+    "fastapi-patterns",
+    "supabase-mcp"
+  ],
+  "focus_keywords": [
+    "api",
+    "endpoint",
+    "route",
+    "handler",
+    "service",
+    "backend",
+    "server",
+    "controller",
+    "middleware",
+    "auth",
+    "validation",
+    "request",
+    "response"
+  ]
+}

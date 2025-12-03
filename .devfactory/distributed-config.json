@@ -1,0 +1,27 @@
+{
+  "project_name": "MyCPA",
+  "branch_prefix": "devfactory/",
+  "sessions": {
+    "count": 4,
+    "profiles": [
+      "database",
+      "backend",
+      "frontend",
+      "testing"
+    ],
+    "pipeline_order": [
+      "database",
+      "backend",
+      "frontend",
+      "testing"
+    ]
+  },
+  "orchestrator": {
+    "model": "claude-sonnet-4-20250514",
+    "strategist_model": "claude-sonnet-4-20250514",
+    "max_review_attempts": 3
+  },
+  "notifications": {
+    "method": "github-issues"
+  }
+}

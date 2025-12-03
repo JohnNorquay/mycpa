@@ -1,0 +1,27 @@
+{
+  "name": "Database Worker",
+  "agents": [
+    "database-engineer",
+    "database-debugger"
+  ],
+  "skills": [
+    "supabase-rls-development",
+    "supabase-mcp"
+  ],
+  "focus_keywords": [
+    "migration",
+    "schema",
+    "table",
+    "column",
+    "index",
+    "rls",
+    "policy",
+    "database",
+    "sql",
+    "supabase",
+    "foreign key",
+    "constraint",
+    "seed",
+    "type"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "project": "MyCPA",
+  "is_running": false,
+  "current_spec_wave": 0,
+  "total_spec_waves": 0,
+  "specs": {},
+  "overall": {
+    "specs_pending": 0,
+    "specs_in_progress": 0,
+    "specs_completed": 0,
+    "specs_total": 0,
+    "tasks_completed": 0,
+    "tasks_merged": 0,
+    "tasks_skipped": 0,
+    "tasks_stuck": 0,
+    "tasks_total": 0,
+    "started_at": null,
+    "last_updated": "2025-12-03T19:44:08.084Z"
+  },
+  "interventions": []
+}
