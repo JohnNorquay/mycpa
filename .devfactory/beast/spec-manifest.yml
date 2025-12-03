@@ -1,0 +1,108 @@
+# .devfactory/beast/spec-manifest.yml
+version: "1.0"
+project: "CPA Bot"
+analyzed_at: "2025-12-03T15:30:00Z"
+
+specs:
+  - id: "2025-12-03-foundation"
+    name: "Foundation"
+    path: ".devfactory/specs/2025-12-03-foundation"
+    size: "M"
+    depends_on: []
+    layers:
+      database: true
+      backend: true
+      frontend: true
+      testing: true
+    task_count: 43
+
+  - id: "2025-12-03-tax-debt-core"
+    name: "Tax Debt Core"
+    path: ".devfactory/specs/2025-12-03-tax-debt-core"
+    size: "L"
+    depends_on: ["2025-12-03-foundation"]
+    layers:
+      database: true
+      backend: true
+      frontend: true
+      testing: true
+    task_count: 52
+
+  - id: "2025-12-03-bank-integration"
+    name: "Bank Integration"
+    path: ".devfactory/specs/2025-12-03-bank-integration"
+    size: "M"
+    depends_on: ["2025-12-03-foundation"]
+    layers:
+      database: false
+      backend: true
+      frontend: true
+      testing: true
+    task_count: 27
+
+  - id: "2025-12-03-cash-flow"
+    name: "Cash Flow"
+    path: ".devfactory/specs/2025-12-03-cash-flow"
+    size: "M"
+    depends_on: ["2025-12-03-bank-integration"]
+    layers:
+      database: false
+      backend: true
+      frontend: true
+      testing: true
+    task_count: 26
+
+  - id: "2025-12-03-tax-planning"
+    name: "Tax Planning"
+    path: ".devfactory/specs/2025-12-03-tax-planning"
+    size: "L"
+    depends_on: ["2025-12-03-foundation", "2025-12-03-bank-integration"]
+    layers:
+      database: true
+      backend: true
+      frontend: true
+      testing: true
+    task_count: 32
+
+  - id: "2025-12-03-documents"
+    name: "Documents"
+    path: ".devfactory/specs/2025-12-03-documents"
+    size: "M"
+    depends_on: ["2025-12-03-foundation"]
+    layers:
+      database: true
+      backend: true
+      frontend: true
+      testing: true
+    task_count: 25
+
+  - id: "2025-12-03-ai-insights"
+    name: "AI Insights"
+    path: ".devfactory/specs/2025-12-03-ai-insights"
+    size: "M"
+    depends_on: ["2025-12-03-bank-integration", "2025-12-03-tax-planning", "2025-12-03-tax-debt-core"]
+    layers:
+      database: false
+      backend: true
+      frontend: true
+      testing: true
+    task_count: 21
+
+  - id: "2025-12-03-polish"
+    name: "Polish"
+    path: ".devfactory/specs/2025-12-03-polish"
+    size: "M"
+    depends_on: ["2025-12-03-foundation", "2025-12-03-tax-debt-core", "2025-12-03-bank-integration", "2025-12-03-cash-flow", "2025-12-03-tax-planning", "2025-12-03-documents", "2025-12-03-ai-insights"]
+    layers:
+      database: false
+      backend: true
+      frontend: true
+      testing: true
+    task_count: 26
+
+dependency_order:
+  wave_1: ["2025-12-03-foundation"]
+  wave_2: ["2025-12-03-tax-debt-core", "2025-12-03-bank-integration", "2025-12-03-documents"]
+  wave_3: ["2025-12-03-cash-flow", "2025-12-03-tax-planning"]
+  wave_4: ["2025-12-03-ai-insights"]
+  wave_5: ["2025-12-03-polish"]

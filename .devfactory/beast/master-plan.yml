@@ -1,0 +1,73 @@
+# .devfactory/beast/master-plan.yml
+version: "1.0"
+project: "CPA Bot"
+created_at: "2025-12-03T15:30:00Z"
+
+summary:
+  total_specs: 8
+  total_estimated_tasks: 252
+  estimated_duration: "4-8 hours"
+
+spec_waves:
+  - wave: 1
+    name: "Foundation"
+    specs: ["2025-12-03-foundation"]
+    parallel: false
+    description: "Project setup, auth, database schema, base UI"
+
+  - wave: 2
+    name: "Core Features (Parallel)"
+    specs: ["2025-12-03-tax-debt-core", "2025-12-03-bank-integration", "2025-12-03-documents"]
+    depends_on: [1]
+    parallel: true
+    description: "Tax debt resolution, Plaid integration, document management"
+
+  - wave: 3
+    name: "Extended Features"
+    specs: ["2025-12-03-cash-flow", "2025-12-03-tax-planning"]
+    depends_on: [1, 2]
+    parallel: true
+    description: "Cash flow forecasting, tax projection engine"
+
+  - wave: 4
+    name: "AI Layer"
+    specs: ["2025-12-03-ai-insights"]
+    depends_on: [1, 2, 3]
+    parallel: false
+    description: "Q&A chat, spending analysis, monthly summaries"
+
+  - wave: 5
+    name: "Production Ready"
+    specs: ["2025-12-03-polish"]
+    depends_on: [1, 2, 3, 4]
+    parallel: false
+    description: "Error handling, security, performance, deployment"
+
+pipeline:
+  workers: 4
+  profiles:
+    database:
+      session_name: "beast-db"
+      focus: ["migration", "schema", "table", "rls", "policy", "sql", "supabase", "seed"]
+      agents: ["database-engineer"]
+
+    backend:
+      session_name: "beast-api"
+      focus: ["api", "endpoint", "route", "service", "handler", "action", "server", "lib"]
+      agents: ["integration-engineer"]
+
+    frontend:
+      session_name: "beast-ui"
+      focus: ["component", "page", "form", "ui", "layout", "react", "tailwind", "tsx"]
+      agents: ["ui-designer", "frontend-engineer"]
+
+    testing:
+      session_name: "beast-test"
+      focus: ["test", "e2e", "spec", "playwright", "jest", "verification", "manual"]
+      agents: ["testing-engineer"]
+
+checkpoints:
+  push_to_github: true
+  push_after: "spec_complete"
+  run_tests_after_spec: true
+  commit_message_prefix: "beast:"
