@@ -43,10 +43,10 @@
     "frontend": {
       "status": "working",
       "session": "beast-ui",
-      "current_task": "foundation-3.1",
+      "current_task": "foundation-5.1",
       "current_spec": "2025-12-03-foundation",
-      "completed_tasks": [],
-      "last_heartbeat": "2025-12-03T16:15:00Z"
+      "completed_tasks": ["foundation-3.1", "foundation-3.2", "foundation-3.3", "foundation-3.4"],
+      "last_heartbeat": "2025-12-03T16:20:00Z"
     },
     "testing": {
       "status": "waiting",
