@@ -76,12 +76,12 @@
       "last_heartbeat": "2025-12-03T16:35:00Z"
     },
     "testing": {
-      "status": "waiting",
+      "status": "idle",
       "session": "beast-test",
       "current_task": null,
-      "current_spec": null,
-      "completed_tasks": [],
-      "last_heartbeat": "2025-12-03T16:00:00Z"
+      "current_spec": "2025-12-03-foundation",
+      "completed_tasks": ["foundation-7.1", "foundation-7.2", "foundation-7.3", "foundation-7.4"],
+      "last_heartbeat": "2025-12-03T17:00:00Z"
     }
   },
 
@@ -93,11 +93,11 @@
         "database": "complete",
         "backend": "blocked",
         "frontend": "complete",
-        "testing": "blocked"
+        "testing": "complete"
       },
       "tasks": {
         "total": 43,
-        "completed": 34,
+        "completed": 38,
         "merged": 0,
         "failed": 0
       },
@@ -349,12 +349,45 @@
     ],
     "backend": [],
     "frontend": [],
-    "testing": []
+    "testing": [
+      {
+        "id": "foundation-7.1",
+        "spec": "2025-12-03-foundation",
+        "group": 7,
+        "task": "7.1",
+        "description": "Set up testing infrastructure",
+        "status": "completed"
+      },
+      {
+        "id": "foundation-7.2",
+        "spec": "2025-12-03-foundation",
+        "group": 7,
+        "task": "7.2",
+        "description": "Write auth flow tests",
+        "status": "completed"
+      },
+      {
+        "id": "foundation-7.3",
+        "spec": "2025-12-03-foundation",
+        "group": 7,
+        "task": "7.3",
+        "description": "Write component tests",
+        "status": "completed"
+      },
+      {
+        "id": "foundation-7.4",
+        "spec": "2025-12-03-foundation",
+        "group": 7,
+        "task": "7.4",
+        "description": "Manual verification checklist",
+        "status": "completed"
+      }
+    ]
   },
 
   "stats": {
     "tasks_total": 252,
-    "tasks_completed": 34,
+    "tasks_completed": 38,
     "tasks_merged": 0,
     "tasks_failed": 0,
     "tasks_skipped": 0,
