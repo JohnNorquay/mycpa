@@ -98,7 +98,8 @@ export function TransactionList({
 
     observerRef.current = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && hasMore && !isLoading) {
+        const entry = entries[0]
+        if (entry?.isIntersecting && hasMore && !isLoading) {
           setPage((prev) => prev + 1)
           fetchTransactions(page + 1, true)
         }
@@ -165,7 +166,7 @@ export function TransactionList({
             {format(new Date(date), 'EEEE, MMMM d, yyyy')}
           </h3>
           <div className="divide-y rounded-lg border dark:divide-gray-800 dark:border-gray-800">
-            {groupedTransactions[date].map((transaction) => (
+            {groupedTransactions[date]?.map((transaction) => (
               <div
                 key={transaction.id}
                 className={cn(

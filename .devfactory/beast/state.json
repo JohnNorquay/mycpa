@@ -92,7 +92,7 @@
     "frontend": {
       "status": "working",
       "session": "beast-ui",
-      "current_task": "bank-4.2",
+      "current_task": "bank-4.3",
       "current_spec": "2025-12-03-bank-integration",
       "completed_tasks": [
         "foundation-3.1",
@@ -116,9 +116,10 @@
         "foundation-6.4",
         "bank-1.5",
         "bank-2.5",
-        "bank-4.1"
+        "bank-4.1",
+        "bank-4.2"
       ],
-      "last_heartbeat": "2025-12-04T23:58:00Z"
+      "last_heartbeat": "2025-12-05T00:05:00Z"
     },
     "testing": {
       "status": "idle",
@@ -132,7 +133,7 @@
         "foundation-7.4",
         "bank-api-tests"
       ],
-      "last_heartbeat": "2025-12-04T23:42:50Z",
+      "last_heartbeat": "2025-12-04T23:47:08Z",
       "test_results": {
         "build": "pass",
         "typecheck": "pass",
@@ -143,7 +144,7 @@
           "failed": 0
         }
       },
-      "tests_passing": 69,
+      "tests_passing": 127,
       "tests_failing": 0
     }
   },
@@ -521,7 +522,7 @@
         "group": 2,
         "task": "2.5",
         "description": "Create accounts management page",
-        "status": "in_progress"
+        "status": "completed"
       },
       {
         "id": "bank-4.1",
@@ -529,7 +530,7 @@
         "group": 4,
         "task": "4.1",
         "description": "Create transaction list component",
-        "status": "pending"
+        "status": "completed"
       },
       {
         "id": "bank-4.2",
@@ -537,6 +538,70 @@
         "group": 4,
         "task": "4.2",
         "description": "Create transaction filters",
+        "status": "completed"
+      },
+      {
+        "id": "bank-4.3",
+        "spec": "2025-12-03-bank-integration",
+        "group": 4,
+        "task": "4.3",
+        "description": "Create transaction detail component",
+        "status": "in_progress"
+      },
+      {
+        "id": "bank-4.4",
+        "spec": "2025-12-03-bank-integration",
+        "group": 4,
+        "task": "4.4",
+        "description": "Create split transaction modal",
+        "status": "pending"
+      },
+      {
+        "id": "bank-4.5",
+        "spec": "2025-12-03-bank-integration",
+        "group": 4,
+        "task": "4.5",
+        "description": "Create transactions page",
+        "status": "pending"
+      },
+      {
+        "id": "bank-4.6",
+        "spec": "2025-12-03-bank-integration",
+        "group": 4,
+        "task": "4.6",
+        "description": "Create transaction actions",
+        "status": "pending"
+      },
+      {
+        "id": "bank-5.1",
+        "spec": "2025-12-03-bank-integration",
+        "group": 5,
+        "task": "5.1",
+        "description": "Create category select component",
+        "status": "pending"
+      },
+      {
+        "id": "bank-5.2",
+        "spec": "2025-12-03-bank-integration",
+        "group": 5,
+        "task": "5.2",
+        "description": "Create category manager",
+        "status": "pending"
+      },
+      {
+        "id": "bank-5.3",
+        "spec": "2025-12-03-bank-integration",
+        "group": 5,
+        "task": "5.3",
+        "description": "Create category rules",
+        "status": "pending"
+      },
+      {
+        "id": "bank-5.4",
+        "spec": "2025-12-03-bank-integration",
+        "group": 5,
+        "task": "5.4",
+        "description": "Create category actions",
         "status": "pending"
       }
     ],
