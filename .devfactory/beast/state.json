@@ -92,7 +92,7 @@
     "frontend": {
       "status": "working",
       "session": "beast-ui",
-      "current_task": "bank-2.5",
+      "current_task": "bank-4.2",
       "current_spec": "2025-12-03-bank-integration",
       "completed_tasks": [
         "foundation-3.1",
@@ -114,14 +114,16 @@
         "foundation-6.2",
         "foundation-6.3",
         "foundation-6.4",
-        "bank-1.5"
+        "bank-1.5",
+        "bank-2.5",
+        "bank-4.1"
       ],
-      "last_heartbeat": "2025-12-04T23:50:00Z"
+      "last_heartbeat": "2025-12-04T23:58:00Z"
     },
     "testing": {
-      "status": "working",
+      "status": "idle",
       "session": "beast-test",
-      "current_task": "api-tests",
+      "current_task": null,
       "current_spec": "2025-12-03-foundation",
       "completed_tasks": [
         "foundation-7.1",
@@ -130,7 +132,7 @@
         "foundation-7.4",
         "bank-api-tests"
       ],
-      "last_heartbeat": "2025-12-04T23:35:54Z",
+      "last_heartbeat": "2025-12-04T23:42:50Z",
       "test_results": {
         "build": "pass",
         "typecheck": "pass",
@@ -140,7 +142,9 @@
           "passed": 53,
           "failed": 0
         }
-      }
+      },
+      "tests_passing": 69,
+      "tests_failing": 0
     }
   },
   "specs": {
