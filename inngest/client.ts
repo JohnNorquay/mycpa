@@ -30,4 +30,17 @@ export type InngestEvents = {
       isTaxDeductible: boolean
     }
   }
+  'documents/process': {
+    data: {
+      documentId: string
+      userId: string
+      filePath: string
+      mimeType: string
+    }
+  }
+  'documents/retry': {
+    data: {
+      documentId: string
+    }
+  }
 }
