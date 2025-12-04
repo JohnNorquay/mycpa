@@ -1,10 +1,4 @@
-export type Json =
-  | string
-  | number
-  | boolean
-  | null
-  | { [key: string]: Json | undefined }
-  | Json[]
+export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[]
 
 export type Database = {
   public: {
@@ -16,11 +10,23 @@ export type Database = {
           first_name: string | null
           last_name: string | null
           date_of_birth: string | null
-          filing_status: 'single' | 'married_filing_jointly' | 'married_filing_separately' | 'head_of_household' | 'qualifying_widow' | null
+          filing_status:
+            | 'single'
+            | 'married_filing_jointly'
+            | 'married_filing_separately'
+            | 'head_of_household'
+            | 'qualifying_widow'
+            | null
           dependents: number
           state: string | null
           county: string | null
-          employment_status: 'employed' | 'self_employed' | 'unemployed' | 'retired' | 'disabled' | null
+          employment_status:
+            | 'employed'
+            | 'self_employed'
+            | 'unemployed'
+            | 'retired'
+            | 'disabled'
+            | null
           has_health_conditions: boolean
           health_conditions_notes: string | null
           created_at: string
@@ -32,11 +38,23 @@ export type Database = {
           first_name?: string | null
           last_name?: string | null
           date_of_birth?: string | null
-          filing_status?: 'single' | 'married_filing_jointly' | 'married_filing_separately' | 'head_of_household' | 'qualifying_widow' | null
+          filing_status?:
+            | 'single'
+            | 'married_filing_jointly'
+            | 'married_filing_separately'
+            | 'head_of_household'
+            | 'qualifying_widow'
+            | null
           dependents?: number
           state?: string | null
           county?: string | null
-          employment_status?: 'employed' | 'self_employed' | 'unemployed' | 'retired' | 'disabled' | null
+          employment_status?:
+            | 'employed'
+            | 'self_employed'
+            | 'unemployed'
+            | 'retired'
+            | 'disabled'
+            | null
           has_health_conditions?: boolean
           health_conditions_notes?: string | null
           created_at?: string
@@ -48,11 +66,23 @@ export type Database = {
           first_name?: string | null
           last_name?: string | null
           date_of_birth?: string | null
-          filing_status?: 'single' | 'married_filing_jointly' | 'married_filing_separately' | 'head_of_household' | 'qualifying_widow' | null
+          filing_status?:
+            | 'single'
+            | 'married_filing_jointly'
+            | 'married_filing_separately'
+            | 'head_of_household'
+            | 'qualifying_widow'
+            | null
           dependents?: number
           state?: string | null
           county?: string | null
-          employment_status?: 'employed' | 'self_employed' | 'unemployed' | 'retired' | 'disabled' | null
+          employment_status?:
+            | 'employed'
+            | 'self_employed'
+            | 'unemployed'
+            | 'retired'
+            | 'disabled'
+            | null
           has_health_conditions?: boolean
           health_conditions_notes?: string | null
           created_at?: string
@@ -64,13 +94,26 @@ export type Database = {
           id: string
           user_id: string
           tax_year: number
-          debt_type: 'income_tax' | 'penalty_failure_to_file' | 'penalty_failure_to_pay' | 'interest' | 'other' | null
+          debt_type:
+            | 'income_tax'
+            | 'penalty_failure_to_file'
+            | 'penalty_failure_to_pay'
+            | 'interest'
+            | 'other'
+            | null
           original_amount: number
           current_balance: number
           interest_rate: number
           penalty_rate: number | null
           source: 'w2_shortage' | '1099_unreported' | 'business' | 'estimated_tax' | 'other' | null
-          collection_status: 'normal' | 'notice_sent' | 'lien_filed' | 'levy_pending' | 'levy_active' | 'garnishment' | 'currently_not_collectible'
+          collection_status:
+            | 'normal'
+            | 'notice_sent'
+            | 'lien_filed'
+            | 'levy_pending'
+            | 'levy_active'
+            | 'garnishment'
+            | 'currently_not_collectible'
           statute_expiration_date: string | null
           created_at: string
           updated_at: string
@@ -79,13 +122,26 @@ export type Database = {
           id?: string
           user_id: string
           tax_year: number
-          debt_type?: 'income_tax' | 'penalty_failure_to_file' | 'penalty_failure_to_pay' | 'interest' | 'other' | null
+          debt_type?:
+            | 'income_tax'
+            | 'penalty_failure_to_file'
+            | 'penalty_failure_to_pay'
+            | 'interest'
+            | 'other'
+            | null
           original_amount: number
           current_balance: number
           interest_rate?: number
           penalty_rate?: number | null
           source?: 'w2_shortage' | '1099_unreported' | 'business' | 'estimated_tax' | 'other' | null
-          collection_status?: 'normal' | 'notice_sent' | 'lien_filed' | 'levy_pending' | 'levy_active' | 'garnishment' | 'currently_not_collectible'
+          collection_status?:
+            | 'normal'
+            | 'notice_sent'
+            | 'lien_filed'
+            | 'levy_pending'
+            | 'levy_active'
+            | 'garnishment'
+            | 'currently_not_collectible'
           statute_expiration_date?: string | null
           created_at?: string
           updated_at?: string
@@ -94,13 +150,26 @@ export type Database = {
           id?: string
           user_id?: string
           tax_year?: number
-          debt_type?: 'income_tax' | 'penalty_failure_to_file' | 'penalty_failure_to_pay' | 'interest' | 'other' | null
+          debt_type?:
+            | 'income_tax'
+            | 'penalty_failure_to_file'
+            | 'penalty_failure_to_pay'
+            | 'interest'
+            | 'other'
+            | null
           original_amount?: number
           current_balance?: number
           interest_rate?: number
           penalty_rate?: number | null
           source?: 'w2_shortage' | '1099_unreported' | 'business' | 'estimated_tax' | 'other' | null
-          collection_status?: 'normal' | 'notice_sent' | 'lien_filed' | 'levy_pending' | 'levy_active' | 'garnishment' | 'currently_not_collectible'
+          collection_status?:
+            | 'normal'
+            | 'notice_sent'
+            | 'lien_filed'
+            | 'levy_pending'
+            | 'levy_active'
+            | 'garnishment'
+            | 'currently_not_collectible'
           statute_expiration_date?: string | null
           created_at?: string
           updated_at?: string
@@ -327,6 +396,7 @@ export type Database = {
           item_id: string
           access_token: string
           institution_name: string | null
+          cursor: string | null
           created_at: string
         }
         Insert: {
@@ -335,6 +405,7 @@ export type Database = {
           item_id: string
           access_token: string
           institution_name?: string | null
+          cursor?: string | null
           created_at?: string
         }
         Update: {
@@ -343,6 +414,7 @@ export type Database = {
           item_id?: string
           access_token?: string
           institution_name?: string | null
+          cursor?: string | null
           created_at?: string
         }
       }
@@ -400,6 +472,7 @@ export type Database = {
           recurrence_pattern: string | null
           notes: string | null
           receipt_document_id: string | null
+          is_removed: boolean
           created_at: string
           updated_at: string
         }
@@ -418,6 +491,7 @@ export type Database = {
           recurrence_pattern?: string | null
           notes?: string | null
           receipt_document_id?: string | null
+          is_removed?: boolean
           created_at?: string
           updated_at?: string
         }
@@ -436,6 +510,7 @@ export type Database = {
           recurrence_pattern?: string | null
           notes?: string | null
           receipt_document_id?: string | null
+          is_removed?: boolean
           created_at?: string
           updated_at?: string
         }
@@ -448,7 +523,14 @@ export type Database = {
           category: string | null
           expected_amount: number | null
           amount_variance: number | null
-          frequency: 'weekly' | 'biweekly' | 'semimonthly' | 'monthly' | 'quarterly' | 'annual' | null
+          frequency:
+            | 'weekly'
+            | 'biweekly'
+            | 'semimonthly'
+            | 'monthly'
+            | 'quarterly'
+            | 'annual'
+            | null
           expected_day: number | null
           last_occurrence: string | null
           next_expected: string | null
@@ -464,7 +546,14 @@ export type Database = {
           category?: string | null
           expected_amount?: number | null
           amount_variance?: number | null
-          frequency?: 'weekly' | 'biweekly' | 'semimonthly' | 'monthly' | 'quarterly' | 'annual' | null
+          frequency?:
+            | 'weekly'
+            | 'biweekly'
+            | 'semimonthly'
+            | 'monthly'
+            | 'quarterly'
+            | 'annual'
+            | null
           expected_day?: number | null
           last_occurrence?: string | null
           next_expected?: string | null
@@ -480,7 +569,14 @@ export type Database = {
           category?: string | null
           expected_amount?: number | null
           amount_variance?: number | null
-          frequency?: 'weekly' | 'biweekly' | 'semimonthly' | 'monthly' | 'quarterly' | 'annual' | null
+          frequency?:
+            | 'weekly'
+            | 'biweekly'
+            | 'semimonthly'
+            | 'monthly'
+            | 'quarterly'
+            | 'annual'
+            | null
           expected_day?: number | null
           last_occurrence?: string | null
           next_expected?: string | null
@@ -655,6 +751,9 @@ export type Database = {
 }
 
 // Helper types for easier usage
-export type Tables<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Row']
-export type InsertTables<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Insert']
-export type UpdateTables<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Update']
+export type Tables<T extends keyof Database['public']['Tables']> =
+  Database['public']['Tables'][T]['Row']
+export type InsertTables<T extends keyof Database['public']['Tables']> =
+  Database['public']['Tables'][T]['Insert']
+export type UpdateTables<T extends keyof Database['public']['Tables']> =
+  Database['public']['Tables'][T]['Update']
