@@ -92,7 +92,7 @@
     "frontend": {
       "status": "working",
       "session": "beast-ui",
-      "current_task": "bank-4.3",
+      "current_task": "bank-4.4",
       "current_spec": "2025-12-03-bank-integration",
       "completed_tasks": [
         "foundation-3.1",
@@ -117,9 +117,10 @@
         "bank-1.5",
         "bank-2.5",
         "bank-4.1",
-        "bank-4.2"
+        "bank-4.2",
+        "bank-4.3"
       ],
-      "last_heartbeat": "2025-12-05T00:05:00Z"
+      "last_heartbeat": "2025-12-05T00:10:00Z"
     },
     "testing": {
       "status": "idle",
@@ -133,7 +134,7 @@
         "foundation-7.4",
         "bank-api-tests"
       ],
-      "last_heartbeat": "2025-12-04T23:47:08Z",
+      "last_heartbeat": "2025-12-04T23:49:14Z",
       "test_results": {
         "build": "pass",
         "typecheck": "pass",
@@ -144,7 +145,7 @@
           "failed": 0
         }
       },
-      "tests_passing": 127,
+      "tests_passing": 161,
       "tests_failing": 0
     }
   },
@@ -546,7 +547,7 @@
         "group": 4,
         "task": "4.3",
         "description": "Create transaction detail component",
-        "status": "in_progress"
+        "status": "completed"
       },
       {
         "id": "bank-4.4",
@@ -554,7 +555,7 @@
         "group": 4,
         "task": "4.4",
         "description": "Create split transaction modal",
-        "status": "pending"
+        "status": "in_progress"
       },
       {
         "id": "bank-4.5",
