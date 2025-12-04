@@ -1,0 +1,102 @@
+feature: "tax-debt-core"
+spec_path: ".devfactory/specs/2025-12-03-tax-debt-core"
+created_at: "2025-12-04T22:00:00Z"
+
+task_groups:
+  - id: "irs-reference-data"
+    name: "IRS Reference Data"
+    assigned_agent: "database-engineer"
+    tasks: ["1.1", "1.2", "1.3", "1.4"]
+    dependencies: []
+    status: "pending"
+
+  - id: "user-profile"
+    name: "User Profile"
+    assigned_agent: "frontend-engineer"
+    tasks: ["2.1", "2.2", "2.3", "2.4", "2.5"]
+    dependencies: []
+    status: "pending"
+
+  - id: "tax-debt-tracking"
+    name: "Tax Debt Tracking"
+    assigned_agent: "frontend-engineer"
+    tasks: ["3.1", "3.2", "3.3", "3.4", "3.5", "3.6"]
+    dependencies: []
+    status: "pending"
+
+  - id: "financial-snapshot"
+    name: "Financial Snapshot"
+    assigned_agent: "frontend-engineer"
+    tasks: ["4.1", "4.2", "4.3", "4.4", "4.5", "4.6", "4.7"]
+    dependencies: ["irs-reference-data", "user-profile"]
+    status: "pending"
+
+  - id: "oic-calculator"
+    name: "OIC Calculator"
+    assigned_agent: "frontend-engineer"
+    tasks: ["5.1", "5.2", "5.3", "5.4", "5.5", "5.6"]
+    dependencies: ["financial-snapshot"]
+    status: "pending"
+
+  - id: "installment-agreement"
+    name: "Installment Agreement"
+    assigned_agent: "frontend-engineer"
+    tasks: ["6.1", "6.2", "6.3", "6.4", "6.5"]
+    dependencies: ["financial-snapshot"]
+    status: "pending"
+
+  - id: "relief-comparison"
+    name: "Relief Comparison"
+    assigned_agent: "frontend-engineer"
+    tasks: ["7.1", "7.2", "7.3", "7.4", "7.5"]
+    dependencies: ["oic-calculator", "installment-agreement"]
+    status: "pending"
+
+  - id: "correspondence-tracker"
+    name: "Correspondence Tracker"
+    assigned_agent: "frontend-engineer"
+    tasks: ["8.1", "8.2", "8.3", "8.4", "8.5"]
+    dependencies: ["tax-debt-tracking"]
+    status: "pending"
+
+  - id: "testing"
+    name: "Testing & Verification"
+    assigned_agent: "testing-engineer"
+    tasks: ["9.1", "9.2", "9.3", "9.4"]
+    dependencies: ["relief-comparison", "correspondence-tracker"]
+    status: "pending"
+
+execution_order:
+  - "irs-reference-data"
+  - "user-profile"
+  - "tax-debt-tracking"
+  - "financial-snapshot"
+  - "oic-calculator"
+  - "installment-agreement"
+  - "relief-comparison"
+  - "correspondence-tracker"
+  - "testing"
+
+parallel_groups:
+  # Phase 1: Reference data, profile, and debt tracking all start together
+  - ["irs-reference-data", "user-profile", "tax-debt-tracking"]
+  # Phase 2: Financial snapshot needs reference data + profile; correspondence needs debt tracking
+  - ["financial-snapshot", "correspondence-tracker"]
+  # Phase 3: OIC and Installment calculators can run in parallel
+  - ["oic-calculator", "installment-agreement"]
+  # Phase 4: Relief comparison needs both calculators
+  - ["relief-comparison"]
+  # Phase 5: Testing
+  - ["testing"]
+
+critical_path:
+  - "irs-reference-data"
+  - "financial-snapshot"
+  - "oic-calculator"
+  - "relief-comparison"
+  - "testing"
+
+estimated_phases: 12
+total_tasks: 47
+max_parallel_tasks: 7
+speedup_potential: "3.9x"

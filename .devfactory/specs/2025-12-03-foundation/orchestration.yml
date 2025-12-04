@@ -1,0 +1,86 @@
+feature: "foundation"
+spec_path: ".devfactory/specs/2025-12-03-foundation"
+created_at: "2025-12-04T22:00:00Z"
+
+task_groups:
+  - id: "project-setup"
+    name: "Project Setup"
+    assigned_agent: "frontend-engineer"
+    tasks: ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7"]
+    dependencies: []
+    status: "pending"
+
+  - id: "database-schema"
+    name: "Database Schema"
+    assigned_agent: "database-engineer"
+    tasks: ["2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8"]
+    dependencies: ["project-setup"]
+    status: "pending"
+
+  - id: "supabase-client"
+    name: "Supabase Client Setup"
+    assigned_agent: "frontend-engineer"
+    tasks: ["3.1", "3.2", "3.3", "3.4"]
+    dependencies: ["project-setup"]
+    status: "pending"
+
+  - id: "authentication"
+    name: "Authentication"
+    assigned_agent: "frontend-engineer"
+    tasks: ["4.1", "4.2", "4.3", "4.4", "4.5", "4.6", "4.7", "4.8"]
+    dependencies: ["database-schema", "supabase-client"]
+    status: "pending"
+
+  - id: "base-ui"
+    name: "Base UI Components"
+    assigned_agent: "ui-designer"
+    tasks: ["5.1", "5.2", "5.3", "5.4", "5.5", "5.6"]
+    dependencies: ["project-setup"]
+    status: "pending"
+
+  - id: "dashboard-layout"
+    name: "Dashboard Layout"
+    assigned_agent: "ui-designer"
+    tasks: ["6.1", "6.2", "6.3", "6.4", "6.5", "6.6"]
+    dependencies: ["authentication", "base-ui"]
+    status: "pending"
+
+  - id: "testing"
+    name: "Testing & Verification"
+    assigned_agent: "testing-engineer"
+    tasks: ["7.1", "7.2", "7.3", "7.4"]
+    dependencies: ["dashboard-layout"]
+    status: "pending"
+
+execution_order:
+  - "project-setup"
+  - "database-schema"
+  - "supabase-client"
+  - "authentication"
+  - "base-ui"
+  - "dashboard-layout"
+  - "testing"
+
+parallel_groups:
+  # Phase 1: Project setup first
+  - ["project-setup"]
+  # Phase 2: Database, Supabase client, and base UI can run in parallel
+  - ["database-schema", "supabase-client", "base-ui"]
+  # Phase 3: Auth depends on DB + Supabase
+  - ["authentication"]
+  # Phase 4: Dashboard needs auth + base UI
+  - ["dashboard-layout"]
+  # Phase 5: Testing last
+  - ["testing"]
+
+critical_path:
+  - "project-setup"
+  - "database-schema"
+  - "authentication"
+  - "dashboard-layout"
+  - "testing"
+
+estimated_phases: 10
+total_tasks: 43
+max_parallel_tasks: 16
+speedup_potential: "4.3x"

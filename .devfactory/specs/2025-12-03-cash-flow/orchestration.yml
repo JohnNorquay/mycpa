@@ -1,0 +1,81 @@
+feature: "cash-flow"
+spec_path: ".devfactory/specs/2025-12-03-cash-flow"
+created_at: "2025-12-04T22:00:00Z"
+
+task_groups:
+  - id: "recurring-detection"
+    name: "Recurring Detection"
+    assigned_agent: "integration-engineer"
+    tasks: ["1.1", "1.2", "1.3", "1.4", "1.5"]
+    dependencies: []
+    status: "pending"
+
+  - id: "projection-engine"
+    name: "Projection Engine"
+    assigned_agent: "integration-engineer"
+    tasks: ["2.1", "2.2", "2.3", "2.4"]
+    dependencies: ["recurring-detection"]
+    status: "pending"
+
+  - id: "cash-flow-calendar"
+    name: "Cash Flow Calendar"
+    assigned_agent: "ui-designer"
+    tasks: ["3.1", "3.2", "3.3", "3.4", "3.5"]
+    dependencies: ["projection-engine"]
+    status: "pending"
+
+  - id: "dashboard-integration"
+    name: "Dashboard Integration"
+    assigned_agent: "ui-designer"
+    tasks: ["4.1", "4.2", "4.3", "4.4"]
+    dependencies: ["projection-engine"]
+    status: "pending"
+
+  - id: "alert-system"
+    name: "Alert System"
+    assigned_agent: "integration-engineer"
+    tasks: ["5.1", "5.2", "5.3", "5.4", "5.5"]
+    dependencies: ["projection-engine"]
+    status: "pending"
+
+  - id: "testing"
+    name: "Testing"
+    assigned_agent: "testing-engineer"
+    tasks: ["6.1", "6.2", "6.3"]
+    dependencies: ["cash-flow-calendar", "dashboard-integration", "alert-system"]
+    status: "pending"
+
+execution_order:
+  - "recurring-detection"
+  - "projection-engine"
+  - "cash-flow-calendar"
+  - "dashboard-integration"
+  - "alert-system"
+  - "testing"
+
+parallel_groups:
+  # Phase 1: Recurring detection (linear chain 1.1->1.2->1.3->1.4)
+  - ["recurring-detection"]
+  # Phase 2: Projection engine
+  - ["projection-engine"]
+  # Phase 3: Calendar, dashboard, and alerts can all run in parallel
+  - ["cash-flow-calendar", "dashboard-integration", "alert-system"]
+  # Phase 4: Testing
+  - ["testing"]
+
+critical_path:
+  - "recurring-detection"
+  - "projection-engine"
+  - "cash-flow-calendar"
+  - "testing"
+
+estimated_phases: 12
+total_tasks: 26
+max_parallel_tasks: 7
+speedup_potential: "2.2x"
+
+notes: |
+  This spec has a more linear dependency chain due to the nature of:
+  recurring detection -> projection engine -> visualization
+  The parallelism comes mainly in Phase 3 where calendar, dashboard widgets,
+  and alert system can all be built simultaneously.

@@ -3,23 +3,20 @@
   "status": "running",
   "started_at": "2025-12-03T15:30:00Z",
   "project": "CPA Bot",
-
   "config": {
     "push_to_github": true,
     "workers": 4
   },
-
   "spec_waves": {
-    "current": 1,
+    "current": 2,
     "total": 5
   },
-
   "pipeline": {
     "database": {
       "status": "idle",
       "session": "beast-db",
       "current_task": null,
-      "current_spec": "2025-12-03-foundation",
+      "current_spec": "2025-12-03-tax-planning",
       "completed_tasks": [
         "foundation-1.1",
         "foundation-1.2",
@@ -35,23 +32,68 @@
         "foundation-2.5",
         "foundation-2.6",
         "foundation-2.7",
-        "foundation-2.8"
+        "foundation-2.8",
+        "taxdebt-1.1",
+        "taxdebt-1.2",
+        "docs-1.1",
+        "docs-1.2",
+        "docs-1.3",
+        "taxplan-1.1",
+        "taxplan-1.2",
+        "taxplan-1.3"
       ],
-      "last_heartbeat": "2025-12-03T16:30:00Z"
+      "last_heartbeat": "2025-12-04T23:35:00Z"
     },
     "backend": {
-      "status": "waiting",
+      "status": "working",
       "session": "beast-api",
-      "current_task": null,
-      "current_spec": null,
-      "completed_tasks": [],
-      "last_heartbeat": null
+      "current_task": "taxplan-2.1",
+      "current_spec": "2025-12-03-tax-planning",
+      "completed_tasks": [
+        "bank-1.1",
+        "bank-1.2",
+        "bank-1.3",
+        "bank-1.4",
+        "bank-2.1",
+        "bank-2.2",
+        "bank-2.3",
+        "bank-2.4",
+        "bank-3.1",
+        "bank-3.2",
+        "bank-3.3",
+        "bank-3.4",
+        "taxdebt-1.3",
+        "taxdebt-1.4",
+        "taxdebt-2.2",
+        "taxdebt-3.2",
+        "taxdebt-4.5",
+        "taxdebt-8.2",
+        "docs-2.1",
+        "docs-2.2",
+        "docs-3.1",
+        "docs-3.2",
+        "docs-3.3",
+        "docs-4.1",
+        "docs-4.2",
+        "docs-4.3",
+        "docs-4.4",
+        "cashflow-1.1",
+        "cashflow-1.2",
+        "cashflow-1.3",
+        "cashflow-1.4",
+        "cashflow-1.5",
+        "cashflow-2.1",
+        "cashflow-2.2",
+        "cashflow-2.3",
+        "cashflow-2.4"
+      ],
+      "last_heartbeat": "2025-12-04T13:20:00Z"
     },
     "frontend": {
-      "status": "idle",
+      "status": "working",
       "session": "beast-ui",
-      "current_task": null,
-      "current_spec": "2025-12-03-foundation",
+      "current_task": "bank-2.5",
+      "current_spec": "2025-12-03-bank-integration",
       "completed_tasks": [
         "foundation-3.1",
         "foundation-3.2",
@@ -71,118 +113,134 @@
         "foundation-6.1",
         "foundation-6.2",
         "foundation-6.3",
-        "foundation-6.4"
+        "foundation-6.4",
+        "bank-1.5"
       ],
-      "last_heartbeat": "2025-12-03T16:35:00Z"
+      "last_heartbeat": "2025-12-04T23:50:00Z"
     },
     "testing": {
-      "status": "idle",
+      "status": "working",
       "session": "beast-test",
-      "current_task": null,
+      "current_task": "api-tests",
       "current_spec": "2025-12-03-foundation",
-      "completed_tasks": ["foundation-7.1", "foundation-7.2", "foundation-7.3", "foundation-7.4"],
-      "last_heartbeat": "2025-12-03T17:00:00Z"
+      "completed_tasks": [
+        "foundation-7.1",
+        "foundation-7.2",
+        "foundation-7.3",
+        "foundation-7.4",
+        "bank-api-tests"
+      ],
+      "last_heartbeat": "2025-12-04T23:35:54Z",
+      "test_results": {
+        "build": "pass",
+        "typecheck": "pass",
+        "lint": "pass",
+        "tests": {
+          "total": 53,
+          "passed": 53,
+          "failed": 0
+        }
+      }
     }
   },
-
   "specs": {
     "2025-12-03-foundation": {
-      "status": "in_progress",
+      "status": "complete",
       "wave": 1,
       "layers": {
         "database": "complete",
-        "backend": "blocked",
+        "backend": "n/a",
         "frontend": "complete",
         "testing": "complete"
       },
       "tasks": {
         "total": 43,
-        "completed": 38,
+        "completed": 43,
         "merged": 0,
         "failed": 0
       },
       "pushed_to_github": false
     },
     "2025-12-03-tax-debt-core": {
-      "status": "blocked",
+      "status": "in_progress",
       "wave": 2,
       "layers": {
-        "database": "blocked",
-        "backend": "blocked",
-        "frontend": "blocked",
+        "database": "complete",
+        "backend": "complete",
+        "frontend": "pending",
         "testing": "blocked"
       },
       "tasks": {
         "total": 52,
-        "completed": 0,
+        "completed": 8,
         "merged": 0,
         "failed": 0
       },
       "pushed_to_github": false
     },
     "2025-12-03-bank-integration": {
-      "status": "blocked",
+      "status": "in_progress",
       "wave": 2,
       "layers": {
         "database": "n/a",
-        "backend": "blocked",
-        "frontend": "blocked",
+        "backend": "complete",
+        "frontend": "pending",
         "testing": "blocked"
       },
       "tasks": {
         "total": 27,
-        "completed": 0,
+        "completed": 12,
         "merged": 0,
         "failed": 0
       },
       "pushed_to_github": false
     },
     "2025-12-03-documents": {
-      "status": "blocked",
+      "status": "in_progress",
       "wave": 2,
       "layers": {
-        "database": "blocked",
-        "backend": "blocked",
-        "frontend": "blocked",
+        "database": "complete",
+        "backend": "complete",
+        "frontend": "pending",
         "testing": "blocked"
       },
       "tasks": {
         "total": 25,
-        "completed": 0,
+        "completed": 9,
         "merged": 0,
         "failed": 0
       },
       "pushed_to_github": false
     },
     "2025-12-03-cash-flow": {
-      "status": "blocked",
+      "status": "in_progress",
       "wave": 3,
       "layers": {
         "database": "n/a",
-        "backend": "blocked",
+        "backend": "complete",
         "frontend": "blocked",
         "testing": "blocked"
       },
       "tasks": {
         "total": 26,
-        "completed": 0,
+        "completed": 9,
         "merged": 0,
         "failed": 0
       },
       "pushed_to_github": false
     },
     "2025-12-03-tax-planning": {
-      "status": "blocked",
+      "status": "in_progress",
       "wave": 3,
       "layers": {
-        "database": "blocked",
-        "backend": "blocked",
+        "database": "complete",
+        "backend": "pending",
         "frontend": "blocked",
         "testing": "blocked"
       },
       "tasks": {
         "total": 32,
-        "completed": 0,
+        "completed": 3,
         "merged": 0,
         "failed": 0
       },
@@ -223,7 +281,6 @@
       "pushed_to_github": false
     }
   },
-
   "queue": {
     "database": [
       {
@@ -347,8 +404,138 @@
         "status": "completed"
       }
     ],
-    "backend": [],
-    "frontend": [],
+    "backend": [
+      {
+        "id": "bank-1.1",
+        "spec": "2025-12-03-bank-integration",
+        "group": 1,
+        "task": "1.1",
+        "description": "Install Plaid dependencies",
+        "status": "completed"
+      },
+      {
+        "id": "bank-1.2",
+        "spec": "2025-12-03-bank-integration",
+        "group": 1,
+        "task": "1.2",
+        "description": "Create Plaid client utility",
+        "status": "completed"
+      },
+      {
+        "id": "bank-1.3",
+        "spec": "2025-12-03-bank-integration",
+        "group": 1,
+        "task": "1.3",
+        "description": "Create link token API route",
+        "status": "completed"
+      },
+      {
+        "id": "bank-1.4",
+        "spec": "2025-12-03-bank-integration",
+        "group": 1,
+        "task": "1.4",
+        "description": "Create token exchange API route",
+        "status": "completed"
+      },
+      {
+        "id": "bank-2.1",
+        "spec": "2025-12-03-bank-integration",
+        "group": 2,
+        "task": "2.1",
+        "description": "Create transaction sync utility",
+        "status": "completed"
+      },
+      {
+        "id": "bank-2.2",
+        "spec": "2025-12-03-bank-integration",
+        "group": 2,
+        "task": "2.2",
+        "description": "Create sync API route",
+        "status": "completed"
+      },
+      {
+        "id": "bank-2.3",
+        "spec": "2025-12-03-bank-integration",
+        "group": 2,
+        "task": "2.3",
+        "description": "Create daily cron job",
+        "status": "completed"
+      },
+      {
+        "id": "bank-2.4",
+        "spec": "2025-12-03-bank-integration",
+        "group": 2,
+        "task": "2.4",
+        "description": "Handle transaction deduplication",
+        "status": "completed"
+      },
+      {
+        "id": "bank-3.1",
+        "spec": "2025-12-03-bank-integration",
+        "group": 3,
+        "task": "3.1",
+        "description": "Install Claude SDK",
+        "status": "completed"
+      },
+      {
+        "id": "bank-3.2",
+        "spec": "2025-12-03-bank-integration",
+        "group": 3,
+        "task": "3.2",
+        "description": "Create categorization utility",
+        "status": "completed"
+      },
+      {
+        "id": "bank-3.3",
+        "spec": "2025-12-03-bank-integration",
+        "group": 3,
+        "task": "3.3",
+        "description": "Create Inngest function for batch processing",
+        "status": "completed"
+      },
+      {
+        "id": "bank-3.4",
+        "spec": "2025-12-03-bank-integration",
+        "group": 3,
+        "task": "3.4",
+        "description": "Create merchant category mapping",
+        "status": "completed"
+      }
+    ],
+    "frontend": [
+      {
+        "id": "bank-1.5",
+        "spec": "2025-12-03-bank-integration",
+        "group": 1,
+        "task": "1.5",
+        "description": "Create Plaid Link button component",
+        "status": "completed"
+      },
+      {
+        "id": "bank-2.5",
+        "spec": "2025-12-03-bank-integration",
+        "group": 2,
+        "task": "2.5",
+        "description": "Create accounts management page",
+        "status": "in_progress"
+      },
+      {
+        "id": "bank-4.1",
+        "spec": "2025-12-03-bank-integration",
+        "group": 4,
+        "task": "4.1",
+        "description": "Create transaction list component",
+        "status": "pending"
+      },
+      {
+        "id": "bank-4.2",
+        "spec": "2025-12-03-bank-integration",
+        "group": 4,
+        "task": "4.2",
+        "description": "Create transaction filters",
+        "status": "pending"
+      }
+    ],
     "testing": [
       {
         "id": "foundation-7.1",
@@ -384,7 +571,6 @@
       }
     ]
   },
-
   "stats": {
     "tasks_total": 252,
     "tasks_completed": 38,
@@ -396,7 +582,6 @@
     "api_calls": 0,
     "estimated_cost": 0.0
   },
-
   "activity_log": [
     {
       "timestamp": "2025-12-03T15:30:00Z",

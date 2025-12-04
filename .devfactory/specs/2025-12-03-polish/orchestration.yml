@@ -1,0 +1,76 @@
+feature: "polish"
+spec_path: ".devfactory/specs/2025-12-03-polish"
+created_at: "2025-12-04T22:00:00Z"
+
+task_groups:
+  - id: "error-handling"
+    name: "Error Handling"
+    assigned_agent: "frontend-engineer"
+    tasks: ["1.1", "1.2", "1.3", "1.4", "1.5"]
+    dependencies: []
+    status: "pending"
+
+  - id: "security-hardening"
+    name: "Security Hardening"
+    assigned_agent: "security-engineer"
+    tasks: ["2.1", "2.2", "2.3", "2.4", "2.5", "2.6"]
+    dependencies: []
+    status: "pending"
+
+  - id: "performance-optimization"
+    name: "Performance Optimization"
+    assigned_agent: "frontend-engineer"
+    tasks: ["3.1", "3.2", "3.3", "3.4", "3.5"]
+    dependencies: ["error-handling"]
+    status: "pending"
+
+  - id: "production-deployment"
+    name: "Production Deployment"
+    assigned_agent: "devops-engineer"
+    tasks: ["4.1", "4.2", "4.3", "4.4", "4.5", "4.6"]
+    dependencies: ["error-handling"]
+    status: "pending"
+
+  - id: "final-testing"
+    name: "Final Testing"
+    assigned_agent: "testing-engineer"
+    tasks: ["5.1", "5.2", "5.3", "5.4"]
+    dependencies: ["security-hardening", "performance-optimization", "production-deployment"]
+    status: "pending"
+
+execution_order:
+  - "error-handling"
+  - "security-hardening"
+  - "performance-optimization"
+  - "production-deployment"
+  - "final-testing"
+
+parallel_groups:
+  # Phase 1: Error handling and security hardening can run in parallel
+  # Most tasks within each group are also parallelizable
+  - ["error-handling", "security-hardening"]
+  # Phase 2: Performance and deployment can run in parallel (both need error handling)
+  - ["performance-optimization", "production-deployment"]
+  # Phase 3: Final testing
+  - ["final-testing"]
+
+critical_path:
+  - "error-handling"
+  - "performance-optimization"
+  - "final-testing"
+
+estimated_phases: 5
+total_tasks: 26
+max_parallel_tasks: 16
+speedup_potential: "5.2x"
+
+notes: |
+  This spec has the highest parallelism potential because:
+  - Error handling tasks (1.1-1.5) are mostly independent
+  - Security hardening tasks (2.1-2.6) are all independent
+  - Production deployment tasks (4.1-4.6) are mostly independent
+
+  Phase 1 alone can run 16 tasks in parallel:
+  - 5 error handling tasks
+  - 6 security hardening tasks
+  - Plus some performance and deployment tasks with no dependencies
