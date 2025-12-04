@@ -8,7 +8,7 @@
     "workers": 4
   },
   "spec_waves": {
-    "current": 2,
+    "current": 4,
     "total": 5
   },
   "pipeline": {
@@ -47,8 +47,8 @@
     "backend": {
       "status": "working",
       "session": "beast-api",
-      "current_task": "taxplan-2.1",
-      "current_spec": "2025-12-03-tax-planning",
+      "current_task": "ai-1.1",
+      "current_spec": "2025-12-03-ai-insights",
       "completed_tasks": [
         "bank-1.1",
         "bank-1.2",
@@ -85,14 +85,23 @@
         "cashflow-2.1",
         "cashflow-2.2",
         "cashflow-2.3",
-        "cashflow-2.4"
+        "cashflow-2.4",
+        "taxplan-2.1",
+        "taxplan-2.2",
+        "taxplan-2.3",
+        "taxplan-2.4",
+        "taxplan-2.5",
+        "taxplan-3.1",
+        "taxplan-3.2",
+        "taxplan-3.3",
+        "taxplan-3.4"
       ],
-      "last_heartbeat": "2025-12-04T13:20:00Z"
+      "last_heartbeat": "2025-12-04T13:35:00Z"
     },
     "frontend": {
       "status": "working",
       "session": "beast-ui",
-      "current_task": "bank-4.4",
+      "current_task": "bank-5.1",
       "current_spec": "2025-12-03-bank-integration",
       "completed_tasks": [
         "foundation-3.1",
@@ -118,9 +127,12 @@
         "bank-2.5",
         "bank-4.1",
         "bank-4.2",
-        "bank-4.3"
+        "bank-4.3",
+        "bank-4.4",
+        "bank-4.5",
+        "bank-4.6"
       ],
-      "last_heartbeat": "2025-12-05T00:10:00Z"
+      "last_heartbeat": "2025-12-05T00:15:00Z"
     },
     "testing": {
       "status": "idle",
@@ -134,7 +146,7 @@
         "foundation-7.4",
         "bank-api-tests"
       ],
-      "last_heartbeat": "2025-12-04T23:49:14Z",
+      "last_heartbeat": "2025-12-04T23:52:28Z",
       "test_results": {
         "build": "pass",
         "typecheck": "pass",
@@ -145,7 +157,7 @@
           "failed": 0
         }
       },
-      "tests_passing": 161,
+      "tests_passing": 193,
       "tests_failing": 0
     }
   },
@@ -240,24 +252,24 @@
       "wave": 3,
       "layers": {
         "database": "complete",
-        "backend": "pending",
+        "backend": "complete",
         "frontend": "blocked",
         "testing": "blocked"
       },
       "tasks": {
         "total": 32,
-        "completed": 3,
+        "completed": 12,
         "merged": 0,
         "failed": 0
       },
       "pushed_to_github": false
     },
     "2025-12-03-ai-insights": {
-      "status": "blocked",
+      "status": "in_progress",
       "wave": 4,
       "layers": {
         "database": "n/a",
-        "backend": "blocked",
+        "backend": "pending",
         "frontend": "blocked",
         "testing": "blocked"
       },
@@ -555,7 +567,7 @@
         "group": 4,
         "task": "4.4",
         "description": "Create split transaction modal",
-        "status": "in_progress"
+        "status": "completed"
       },
       {
         "id": "bank-4.5",
@@ -563,7 +575,7 @@
         "group": 4,
         "task": "4.5",
         "description": "Create transactions page",
-        "status": "pending"
+        "status": "completed"
       },
       {
         "id": "bank-4.6",
@@ -571,7 +583,7 @@
         "group": 4,
         "task": "4.6",
         "description": "Create transaction actions",
-        "status": "pending"
+        "status": "completed"
       },
       {
         "id": "bank-5.1",
@@ -579,7 +591,7 @@
         "group": 5,
         "task": "5.1",
         "description": "Create category select component",
-        "status": "pending"
+        "status": "in_progress"
       },
       {
         "id": "bank-5.2",
