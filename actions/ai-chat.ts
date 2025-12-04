@@ -46,10 +46,11 @@ export async function streamChatResponse(
       const context = await buildFinancialContext(user.id)
 
       // Inject context into the first user message
-      if (contextualizedMessages.length > 0 && contextualizedMessages[0].role === 'user') {
+      const firstMessage = contextualizedMessages[0]
+      if (firstMessage && firstMessage.role === 'user') {
         contextualizedMessages[0] = {
           role: 'user',
-          content: `Context about my finances:\n\n${context}\n\nMy question: ${contextualizedMessages[0].content}`,
+          content: `Context about my finances:\n\n${context}\n\nMy question: ${firstMessage.content}`,
         }
       }
     }
