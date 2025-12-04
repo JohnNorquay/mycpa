@@ -92,7 +92,7 @@ export function getCapitalGainsRate(taxableIncome: number, filingStatus: FilingS
   }
 
   // Should never reach here, but return highest rate as fallback
-  return brackets[brackets.length - 1].rate
+  return brackets[brackets.length - 1]?.rate ?? 0.2
 }
 
 /**
@@ -141,6 +141,7 @@ export function calculateCapitalGainsTax(
   // Stack capital gains on top of ordinary income and calculate tax for each bracket
   for (let i = 0; i < brackets.length && remainingGains > 0; i++) {
     const bracket = brackets[i]
+    if (!bracket) continue
     const bracketMax = bracket.maxIncome ?? Infinity
 
     if (currentIncome >= bracketMax) {

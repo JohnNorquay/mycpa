@@ -237,5 +237,5 @@ export function getWisconsinMarginalRate(
   }
 
   // Return highest bracket rate
-  return brackets[brackets.length - 1].rate
+  return brackets[brackets.length - 1]?.rate ?? 0.0765
 }

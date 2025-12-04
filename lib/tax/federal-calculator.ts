@@ -172,7 +172,7 @@ export function getMarginalRate(taxableIncome: number, filingStatus: FilingStatu
   }
 
   // If we reach here, return the highest bracket rate
-  return brackets[brackets.length - 1].rate
+  return brackets[brackets.length - 1]?.rate ?? 0.37
 }
 
 /**
