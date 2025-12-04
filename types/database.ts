@@ -612,6 +612,38 @@ export type Database = {
           color?: string | null
         }
       }
+      merchant_category_cache: {
+        Row: {
+          id: string
+          user_id: string
+          merchant_name: string
+          category: string
+          is_tax_deductible: boolean
+          confidence: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          merchant_name: string
+          category: string
+          is_tax_deductible?: boolean
+          confidence?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          merchant_name?: string
+          category?: string
+          is_tax_deductible?: boolean
+          confidence?: number
+          created_at?: string
+          updated_at?: string
+        }
+      }
       tax_documents: {
         Row: {
           id: string
