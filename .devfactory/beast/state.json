@@ -8,7 +8,7 @@
     "workers": 4
   },
   "spec_waves": {
-    "current": 4,
+    "current": 5,
     "total": 5
   },
   "pipeline": {
@@ -45,10 +45,10 @@
       "last_heartbeat": "2025-12-04T23:35:00Z"
     },
     "backend": {
-      "status": "working",
+      "status": "idle",
       "session": "beast-api",
-      "current_task": "ai-1.1",
-      "current_spec": "2025-12-03-ai-insights",
+      "current_task": null,
+      "current_spec": "2025-12-03-polish",
       "completed_tasks": [
         "bank-1.1",
         "bank-1.2",
@@ -94,15 +94,28 @@
         "taxplan-3.1",
         "taxplan-3.2",
         "taxplan-3.3",
-        "taxplan-3.4"
+        "taxplan-3.4",
+        "ai-1.1",
+        "ai-1.2",
+        "ai-1.3",
+        "ai-2.1",
+        "ai-2.2",
+        "ai-2.3",
+        "ai-3.1",
+        "ai-3.2",
+        "ai-3.3",
+        "polish-1.3",
+        "polish-1.4",
+        "polish-2.2",
+        "polish-2.4"
       ],
-      "last_heartbeat": "2025-12-04T13:35:00Z"
+      "last_heartbeat": "2025-12-05T01:00:00Z"
     },
     "frontend": {
       "status": "working",
       "session": "beast-ui",
-      "current_task": "bank-5.1",
-      "current_spec": "2025-12-03-bank-integration",
+      "current_task": "taxdebt-3.3",
+      "current_spec": "2025-12-03-tax-debt-core",
       "completed_tasks": [
         "foundation-3.1",
         "foundation-3.2",
@@ -130,9 +143,23 @@
         "bank-4.3",
         "bank-4.4",
         "bank-4.5",
-        "bank-4.6"
+        "bank-4.6",
+        "bank-5.1",
+        "bank-5.2",
+        "bank-5.3",
+        "bank-5.4",
+        "taxdebt-3.1",
+        "ai-1.4",
+        "ai-1.5",
+        "ai-2.4",
+        "ai-3.4",
+        "taxdebt-2.1",
+        "taxdebt-2.5",
+        "taxdebt-8.1",
+        "taxdebt-8.3",
+        "taxdebt-8.4"
       ],
-      "last_heartbeat": "2025-12-05T00:15:00Z"
+      "last_heartbeat": "2025-12-05T01:00:00Z"
     },
     "testing": {
       "status": "idle",
@@ -144,20 +171,24 @@
         "foundation-7.2",
         "foundation-7.3",
         "foundation-7.4",
-        "bank-api-tests"
+        "bank-api-tests",
+        "bank-ui-tests",
+        "tax-calculator-tests",
+        "cash-flow-tests",
+        "document-upload-tests"
       ],
-      "last_heartbeat": "2025-12-04T23:53:43Z",
+      "last_heartbeat": "2025-12-05T01:14:00Z",
       "test_results": {
         "build": "pass",
         "typecheck": "pass",
         "lint": "pass",
         "tests": {
-          "total": 53,
-          "passed": 53,
+          "total": 358,
+          "passed": 358,
           "failed": 0
         }
       },
-      "tests_passing": 223,
+      "tests_passing": 358,
       "tests_failing": 0
     }
   },
@@ -202,12 +233,12 @@
       "layers": {
         "database": "n/a",
         "backend": "complete",
-        "frontend": "pending",
-        "testing": "blocked"
+        "frontend": "complete",
+        "testing": "pending"
       },
       "tasks": {
         "total": 27,
-        "completed": 12,
+        "completed": 24,
         "merged": 0,
         "failed": 0
       },
@@ -269,30 +300,30 @@
       "wave": 4,
       "layers": {
         "database": "n/a",
-        "backend": "pending",
-        "frontend": "blocked",
+        "backend": "complete",
+        "frontend": "in_progress",
         "testing": "blocked"
       },
       "tasks": {
         "total": 21,
-        "completed": 0,
+        "completed": 12,
         "merged": 0,
         "failed": 0
       },
       "pushed_to_github": false
     },
     "2025-12-03-polish": {
-      "status": "blocked",
+      "status": "in_progress",
       "wave": 5,
       "layers": {
         "database": "n/a",
-        "backend": "blocked",
-        "frontend": "blocked",
+        "backend": "complete",
+        "frontend": "pending",
         "testing": "blocked"
       },
       "tasks": {
         "total": 26,
-        "completed": 0,
+        "completed": 4,
         "merged": 0,
         "failed": 0
       },
@@ -591,7 +622,7 @@
         "group": 5,
         "task": "5.1",
         "description": "Create category select component",
-        "status": "in_progress"
+        "status": "completed"
       },
       {
         "id": "bank-5.2",
@@ -599,7 +630,7 @@
         "group": 5,
         "task": "5.2",
         "description": "Create category manager",
-        "status": "pending"
+        "status": "completed"
       },
       {
         "id": "bank-5.3",
@@ -607,7 +638,7 @@
         "group": 5,
         "task": "5.3",
         "description": "Create category rules",
-        "status": "pending"
+        "status": "completed"
       },
       {
         "id": "bank-5.4",
@@ -615,7 +646,7 @@
         "group": 5,
         "task": "5.4",
         "description": "Create category actions",
-        "status": "pending"
+        "status": "completed"
       }
     ],
     "testing": [
