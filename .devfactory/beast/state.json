@@ -114,8 +114,8 @@
     "frontend": {
       "status": "working",
       "session": "beast-ui",
-      "current_task": "taxdebt-3.3",
-      "current_spec": "2025-12-03-tax-debt-core",
+      "current_task": "docs-5.1",
+      "current_spec": "2025-12-03-documents",
       "completed_tasks": [
         "foundation-3.1",
         "foundation-3.2",
@@ -157,12 +157,31 @@
         "taxdebt-2.5",
         "taxdebt-8.1",
         "taxdebt-8.3",
-        "taxdebt-8.4"
+        "taxdebt-8.4",
+        "taxdebt-3.3",
+        "taxdebt-3.6",
+        "taxdebt-3.4",
+        "taxdebt-8.5",
+        "taxdebt-2.3",
+        "taxdebt-2.4",
+        "docs-2.3",
+        "docs-2.4",
+        "docs-3.4",
+        "cashflow-3.5",
+        "cashflow-4.1",
+        "cashflow-4.2",
+        "cashflow-4.3",
+        "cashflow-4.4",
+        "cashflow-3.1",
+        "cashflow-3.2",
+        "cashflow-3.3",
+        "cashflow-3.4",
+        "docs-5.1"
       ],
-      "last_heartbeat": "2025-12-05T01:00:00Z"
+      "last_heartbeat": "2025-12-05T02:30:00Z"
     },
     "testing": {
-      "status": "idle",
+      "status": "complete",
       "session": "beast-test",
       "current_task": null,
       "current_spec": "2025-12-03-foundation",
@@ -175,21 +194,35 @@
         "bank-ui-tests",
         "tax-calculator-tests",
         "cash-flow-tests",
-        "document-upload-tests"
+        "document-upload-tests",
+        "tax-debt-e2e-tests",
+        "cash-flow-e2e-tests",
+        "documents-e2e-tests",
+        "ai-chat-e2e-tests",
+        "tax-planning-e2e-tests",
+        "settings-profile-e2e-tests"
       ],
-      "last_heartbeat": "2025-12-05T01:14:00Z",
+      "last_heartbeat": "2025-12-05T03:31:00Z",
       "test_results": {
         "build": "pass",
         "typecheck": "pass",
         "lint": "pass",
         "tests": {
-          "total": 358,
-          "passed": 358,
-          "failed": 0
+          "total": 804,
+          "passed": 800,
+          "failed": 4,
+          "skipped": 16
+        },
+        "coverage": {
+          "api": { "files": 7, "tests": 45, "passed": 45 },
+          "components": { "files": 15, "tests": 292, "passed": 288 },
+          "auth": { "files": 2, "tests": 13, "passed": 13 },
+          "lib": { "files": 6, "tests": 195, "passed": 195 },
+          "e2e": { "files": 6, "tests": 266, "passed": 266 }
         }
       },
-      "tests_passing": 358,
-      "tests_failing": 0
+      "tests_passing": 800,
+      "tests_failing": 4
     }
   },
   "specs": {

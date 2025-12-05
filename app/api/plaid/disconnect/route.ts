@@ -51,15 +51,25 @@ export async function POST(request: NextRequest) {
       // Continue with deletion even if Plaid removal fails
     }
 
-    // Delete associated transactions first (foreign key constraint)
-    const { error: txError } = await supabase
-      .from('transactions')
-      .delete()
-      .eq('user_id', user.id)
-      .in('account_id', supabase.from('accounts').select('id').eq('plaid_item_id', plaid_item_id))
+    // Get account IDs for this plaid item
+    const { data: accountsToDelete } = await supabase
+      .from('accounts')
+      .select('id')
+      .eq('plaid_item_id', plaid_item_id)
 
-    if (txError) {
-      console.error('Error deleting transactions:', txError)
+    const accountIds = accountsToDelete?.map((a) => a.id) || []
+
+    // Delete associated transactions first (foreign key constraint)
+    if (accountIds.length > 0) {
+      const { error: txError } = await supabase
+        .from('transactions')
+        .delete()
+        .eq('user_id', user.id)
+        .in('account_id', accountIds)
+
+      if (txError) {
+        console.error('Error deleting transactions:', txError)
+      }
     }
 
     // Delete associated accounts

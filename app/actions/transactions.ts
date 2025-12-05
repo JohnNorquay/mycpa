@@ -80,7 +80,7 @@ export async function updateTransaction(
     return { success: true, data: { id: transactionId } }
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return { success: false, error: error.errors[0]?.message || 'Invalid input' }
+      return { success: false, error: error.issues[0]?.message || 'Invalid input' }
     }
     console.error('Error in updateTransaction:', error)
     return { success: false, error: 'An unexpected error occurred' }
@@ -186,7 +186,7 @@ export async function splitTransaction(
     }
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return { success: false, error: error.errors[0]?.message || 'Invalid input' }
+      return { success: false, error: error.issues[0]?.message || 'Invalid input' }
     }
     console.error('Error in splitTransaction:', error)
     return { success: false, error: 'An unexpected error occurred' }
@@ -240,7 +240,7 @@ export async function deleteTransaction(transactionId: string): Promise<ActionRe
     }
 
     revalidatePath('/transactions')
-    return { success: true }
+    return { success: true, data: undefined }
   } catch (error) {
     console.error('Error in deleteTransaction:', error)
     return { success: false, error: 'An unexpected error occurred' }

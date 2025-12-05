@@ -2,8 +2,10 @@
 
 import { revalidatePath } from 'next/cache'
 import { createClient } from '@/lib/supabase/server'
-import type { ActionResult } from '@/types'
+import type { ActionResult, Tables } from '@/types'
 import { z } from 'zod'
+
+export type Category = Tables<'categories'>
 
 // Zod schemas for validation
 const categorySchema = z.object({
@@ -23,15 +25,6 @@ const categoryRuleSchema = z.object({
   priority: z.number().int().min(0).default(0),
   is_active: z.boolean().default(true),
 })
-
-interface Category {
-  id: string
-  name: string
-  parent_id: string | null
-  is_tax_deductible: boolean
-  icon: string | null
-  color: string | null
-}
 
 interface CategoryRule {
   id: string
@@ -132,7 +125,7 @@ export async function createCategory(
     return { success: true, data: { category } }
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return { success: false, error: error.errors[0]?.message || 'Invalid input' }
+      return { success: false, error: error.issues[0]?.message || 'Invalid input' }
     }
     console.error('Error in createCategory:', error)
     return { success: false, error: 'An unexpected error occurred' }
@@ -198,7 +191,7 @@ export async function updateCategory(
     return { success: true, data: { category } }
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return { success: false, error: error.errors[0]?.message || 'Invalid input' }
+      return { success: false, error: error.issues[0]?.message || 'Invalid input' }
     }
     console.error('Error in updateCategory:', error)
     return { success: false, error: 'An unexpected error occurred' }
@@ -247,7 +240,7 @@ export async function deleteCategory(categoryId: string): Promise<ActionResult<v
 
     revalidatePath('/transactions')
     revalidatePath('/settings/categories')
-    return { success: true }
+    return { success: true, data: undefined }
   } catch (error) {
     console.error('Error in deleteCategory:', error)
     return { success: false, error: 'An unexpected error occurred' }
@@ -331,7 +324,7 @@ export async function createCategoryRule(
     return { success: true, data: { rule } }
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return { success: false, error: error.errors[0]?.message || 'Invalid input' }
+      return { success: false, error: error.issues[0]?.message || 'Invalid input' }
     }
     console.error('Error in createCategoryRule:', error)
     return { success: false, error: 'An unexpected error occurred' }
@@ -438,7 +431,7 @@ export async function deleteCategoryRule(ruleId: string): Promise<ActionResult<v
     }
 
     revalidatePath('/settings/categories')
-    return { success: true }
+    return { success: true, data: undefined }
   } catch (error) {
     console.error('Error in deleteCategoryRule:', error)
     return { success: false, error: 'An unexpected error occurred' }

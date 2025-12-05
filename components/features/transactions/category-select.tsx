@@ -47,7 +47,6 @@ export function CategorySelect({
     }))
 
     // Add orphan categories (children without valid parent)
-    const orphanChildrenParentIds = new Set(childCategories.map((c) => c.parent_id))
     const validParentIds = new Set(parentCategories.map((c) => c.id))
     childCategories.forEach((child) => {
       if (child.parent_id && !validParentIds.has(child.parent_id)) {
